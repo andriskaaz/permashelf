@@ -1,5 +1,5 @@
 {
-  "name": "@acme/db",
+  "name": "@permashelf/db",
   "private": true,
   "type": "module",
   "exports": {
@@ -35,13 +35,13 @@
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@acme/eslint-config": "workspace:*",
-    "@acme/prettier-config": "workspace:*",
-    "@acme/tsconfig": "workspace:*",
+    "@permashelf/eslint-config": "workspace:*",
+    "@permashelf/prettier-config": "workspace:*",
+    "@permashelf/tsconfig": "workspace:*",
     "drizzle-kit": "^0.31.5",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:"
   },
-  "prettier": "@acme/prettier-config"
+  "prettier": "@permashelf/prettier-config"
 }
