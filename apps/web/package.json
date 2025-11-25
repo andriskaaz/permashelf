@@ -13,9 +13,6 @@
     "with-env": "dotenv -e ../../.env --"
   },
   "dependencies": {
-    "@permashelf/api": "workspace:*",
-    "@permashelf/auth": "workspace:*",
-    "@permashelf/db": "workspace:*",
     "@permashelf/ui": "workspace:*",
     "@permashelf/validators": "workspace:*",
     "@t3-oss/env-nextjs": "^0.13.8",

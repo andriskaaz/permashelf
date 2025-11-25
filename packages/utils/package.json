@@ -19,9 +19,10 @@
     "@permashelf/eslint-config": "workspace:*",
     "@permashelf/prettier-config": "workspace:*",
     "@permashelf/tsconfig": "workspace:*",
+    "@types/node": "catalog:",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:"
   },
-  "prettier": "@galileyo/prettier-config"
+  "prettier": "@permashelf/prettier-config"
 }

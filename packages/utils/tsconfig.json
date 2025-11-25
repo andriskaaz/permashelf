@@ -1,5 +1,5 @@
 {
-  "extends": "@permashelf/tsconfig/internal-package.json",
+  "extends": "@permashelf/tsconfig/compiled-package.json",
   "compilerOptions": {},
   "include": ["*.ts", "src"],
   "exclude": ["node_modules"]
