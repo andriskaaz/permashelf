@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   ArchiveIcon,
   BrainIcon,
@@ -6,7 +7,6 @@ import {
   SparklesIcon,
   ZapIcon,
 } from "lucide-react";
-import Link from "next/link";
 
 import { Badge } from "@permashelf/ui/badge";
 import { Button } from "@permashelf/ui/button";
@@ -19,29 +19,26 @@ import {
 import { Input } from "@permashelf/ui/input";
 import { Separator } from "@permashelf/ui/separator";
 
-export default async function HomePage() {
+export default function HomePage() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="relative flex flex-col items-center justify-center px-4 py-20 md:py-32">
         <div className="mx-auto w-full max-w-4xl text-center">
-          <Badge
-            variant="secondary"
-            className="mb-4 text-sm font-medium"
-          >
+          <Badge variant="secondary" className="mb-4 text-sm font-medium">
             AI-Powered Archive
           </Badge>
           <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
             Your Personal, Permanent
             <br />
-            <span className="bg-linear-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+            <span className="from-primary to-primary/60 bg-linear-to-r bg-clip-text text-transparent">
               Knowledge Library
             </span>
           </h1>
           <p className="text-muted-foreground mx-auto mb-8 max-w-2xl text-lg sm:text-xl">
-            PermaShelf automatically scrapes, cleans, and stores permanent copies
-            of any web page. Even if the original disappears, your version stays
-            safe and accessible forever.
+            PermaShelf automatically scrapes, cleans, and stores permanent
+            copies of any web page. Even if the original disappears, your
+            version stays safe and accessible forever.
           </p>
 
           {/* URL Input Section */}
@@ -83,8 +80,8 @@ export default async function HomePage() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <Card>
               <CardHeader>
-                <div className="mb-4 flex size-12 items-center justify-center rounded-lg bg-primary/10">
-                  <ZapIcon className="size-6 text-primary" />
+                <div className="bg-primary/10 mb-4 flex size-12 items-center justify-center rounded-lg">
+                  <ZapIcon className="text-primary size-6" />
                 </div>
                 <CardTitle>One-Click Saving</CardTitle>
                 <CardDescription>
@@ -96,8 +93,8 @@ export default async function HomePage() {
 
             <Card>
               <CardHeader>
-                <div className="mb-4 flex size-12 items-center justify-center rounded-lg bg-primary/10">
-                  <ArchiveIcon className="size-6 text-primary" />
+                <div className="bg-primary/10 mb-4 flex size-12 items-center justify-center rounded-lg">
+                  <ArchiveIcon className="text-primary size-6" />
                 </div>
                 <CardTitle>Permanent Copies</CardTitle>
                 <CardDescription>
@@ -109,8 +106,8 @@ export default async function HomePage() {
 
             <Card>
               <CardHeader>
-                <div className="mb-4 flex size-12 items-center justify-center rounded-lg bg-primary/10">
-                  <BrainIcon className="size-6 text-primary" />
+                <div className="bg-primary/10 mb-4 flex size-12 items-center justify-center rounded-lg">
+                  <BrainIcon className="text-primary size-6" />
                 </div>
                 <CardTitle>AI-Powered Organization</CardTitle>
                 <CardDescription>
@@ -123,8 +120,8 @@ export default async function HomePage() {
 
             <Card>
               <CardHeader>
-                <div className="mb-4 flex size-12 items-center justify-center rounded-lg bg-primary/10">
-                  <SparklesIcon className="size-6 text-primary" />
+                <div className="bg-primary/10 mb-4 flex size-12 items-center justify-center rounded-lg">
+                  <SparklesIcon className="text-primary size-6" />
                 </div>
                 <CardTitle>Custom Structure</CardTitle>
                 <CardDescription>
@@ -136,8 +133,8 @@ export default async function HomePage() {
 
             <Card>
               <CardHeader>
-                <div className="mb-4 flex size-12 items-center justify-center rounded-lg bg-primary/10">
-                  <LockIcon className="size-6 text-primary" />
+                <div className="bg-primary/10 mb-4 flex size-12 items-center justify-center rounded-lg">
+                  <LockIcon className="text-primary size-6" />
                 </div>
                 <CardTitle>Private by Design</CardTitle>
                 <CardDescription>
@@ -149,8 +146,8 @@ export default async function HomePage() {
 
             <Card>
               <CardHeader>
-                <div className="mb-4 flex size-12 items-center justify-center rounded-lg bg-primary/10">
-                  <SearchIcon className="size-6 text-primary" />
+                <div className="bg-primary/10 mb-4 flex size-12 items-center justify-center rounded-lg">
+                  <SearchIcon className="text-primary size-6" />
                 </div>
                 <CardTitle>Fast Search</CardTitle>
                 <CardDescription>
@@ -180,7 +177,7 @@ export default async function HomePage() {
 
           <div className="space-y-8">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
-              <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground font-semibold">
+              <div className="bg-primary text-primary-foreground flex size-10 shrink-0 items-center justify-center rounded-full font-semibold">
                 1
               </div>
               <div className="flex-1">
@@ -194,7 +191,7 @@ export default async function HomePage() {
             </div>
 
             <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
-              <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground font-semibold">
+              <div className="bg-primary text-primary-foreground flex size-10 shrink-0 items-center justify-center rounded-full font-semibold">
                 2
               </div>
               <div className="flex-1">
@@ -211,7 +208,7 @@ export default async function HomePage() {
             </div>
 
             <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
-              <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground font-semibold">
+              <div className="bg-primary text-primary-foreground flex size-10 shrink-0 items-center justify-center rounded-full font-semibold">
                 3
               </div>
               <div className="flex-1">

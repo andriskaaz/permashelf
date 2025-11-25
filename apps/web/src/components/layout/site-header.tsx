@@ -1,5 +1,5 @@
-import { ArchiveIcon } from "lucide-react";
 import Link from "next/link";
+import { ArchiveIcon } from "lucide-react";
 
 import { Button } from "@permashelf/ui/button";
 import { Separator } from "@permashelf/ui/separator";
@@ -8,11 +8,11 @@ import type { User } from "~/auth/client";
 
 export function SiteHeader({ user }: { user?: User | null }) {
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full border-b backdrop-blur">
       <div className="container flex h-16 items-center justify-between px-4">
         <Link
           href="/"
-          className="flex items-center gap-2 font-semibold hover:opacity-80 transition-opacity"
+          className="flex items-center gap-2 font-semibold transition-opacity hover:opacity-80"
         >
           <ArchiveIcon className="size-6" />
           <span className="text-xl">PermaShelf</span>
@@ -23,12 +23,14 @@ export function SiteHeader({ user }: { user?: User | null }) {
             <>
               <Link
                 href="/dashboard"
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className="text-muted-foreground hover:text-foreground text-sm font-medium transition-colors"
               >
                 Dashboard
               </Link>
               <Separator orientation="vertical" className="h-6" />
-              <span className="text-sm text-muted-foreground">{user.email}</span>
+              <span className="text-muted-foreground text-sm">
+                {user.email}
+              </span>
               <Button variant="outline" size="sm" asChild>
                 <Link href="/api/auth/sign-out">Sign Out</Link>
               </Button>
