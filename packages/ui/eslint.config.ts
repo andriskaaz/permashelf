@@ -9,4 +9,11 @@ export default defineConfig(
   },
   baseConfig,
   reactConfig,
+  {
+    rules: {
+      "@typescript-eslint/no-unsafe-assignment": "off",
+      "@typescript-eslint/no-unsafe-call": "off",
+      "@typescript-eslint/prefer-nullish-coalescing": "off",
+    },
+  },
 );

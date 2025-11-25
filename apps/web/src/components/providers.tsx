@@ -1,15 +1,17 @@
 "use client";
 
-import { ThemeProvider, ThemeToggle } from "@permashelf/ui/theme";
-import { Toaster } from "@permashelf/ui/toast";
+import { Toaster } from "@permashelf/ui/sonner";
+import { ThemeProvider } from "@permashelf/ui/theme";
+
+import { TRPCReactProvider } from "~/trpc/react";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider>
-      {children}
-      <div className="absolute right-4 bottom-4">
+      <TRPCReactProvider>{children}</TRPCReactProvider>
+      {/* <div className="absolute right-4 bottom-4">
         <ThemeToggle />
-      </div>
+      </div> */}
       <Toaster />
     </ThemeProvider>
   );

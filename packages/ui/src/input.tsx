@@ -1,10 +1,8 @@
-import { cn } from "@permashelf/ui";
+import type * as React from "react";
 
-export function Input({
-  className,
-  type,
-  ...props
-}: React.ComponentProps<"input">) {
+import { cn } from "./lib/utils";
+
+function Input({ className, type, ...props }: React.ComponentProps<"input">) {
   return (
     <input
       type={type}
@@ -19,3 +17,5 @@ export function Input({
     />
   );
 }
+
+export { Input };

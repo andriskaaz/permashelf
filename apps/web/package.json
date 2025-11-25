@@ -13,7 +13,11 @@
     "with-env": "dotenv -e ../../.env --"
   },
   "dependencies": {
+    "@permashelf/api": "workspace:*",
+    "@permashelf/auth": "workspace:*",
+    "@permashelf/db": "workspace:*",
     "@permashelf/ui": "workspace:*",
+    "@permashelf/utils": "workspace:*",
     "@permashelf/validators": "workspace:*",
     "@t3-oss/env-nextjs": "^0.13.8",
     "@tanstack/react-form": "catalog:",
@@ -21,7 +25,9 @@
     "@trpc/client": "catalog:",
     "@trpc/server": "catalog:",
     "@trpc/tanstack-react-query": "catalog:",
+    "@vercel/speed-insights": "^1.2.0",
     "better-auth": "catalog:",
+    "lucide-react": "^0.554.0",
     "next": "^16.0.0",
     "react": "catalog:react19",
     "react-dom": "catalog:react19",

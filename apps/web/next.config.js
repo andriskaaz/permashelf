@@ -13,6 +13,7 @@ const config = {
     "@permashelf/auth",
     "@permashelf/db",
     "@permashelf/ui",
+    "@permashelf/utils",
     "@permashelf/validators",
   ],
 
