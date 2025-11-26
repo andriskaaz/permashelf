@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArchiveIcon, Github, Twitter } from "lucide-react";
 
 import { Separator } from "@permashelf/ui/separator";
+import { ThemeToggle } from "@permashelf/ui/theme";
 
 export function SiteFooter() {
   const currentYear = new Date().getFullYear();
@@ -145,6 +146,8 @@ export function SiteFooter() {
             >
               <Twitter className="size-5" />
             </Link>
+
+            <ThemeToggle />
           </div>
         </div>
       </div>

@@ -2,8 +2,10 @@ import "server-only";
 
 import { cache } from "react";
 import { headers } from "next/headers";
-import { initAuth } from "@acme/auth";
+import { initAuth } from "@permashelf/auth";
 import { nextCookies } from "better-auth/next-js";
+
+import { magicLink } from "better-auth/plugins";
 
 import { env } from "~/env";
 
@@ -18,7 +20,14 @@ export const auth = initAuth({
   baseUrl,
   productionUrl: `https://${env.VERCEL_PROJECT_PRODUCTION_URL ?? "turbo.t3.gg"}`,
   secret: env.AUTH_SECRET,
-  extraPlugins: [nextCookies()],
+  extraPlugins: [
+    nextCookies(),
+    magicLink({
+      sendMagicLink: async ({ email, token, url }) => {
+        console.log("sendMagicLink", email, token, url);
+      },
+    })
+  ],
 });
 
 export const getSession = cache(async () =>
