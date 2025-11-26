@@ -6,6 +6,11 @@
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**", "next-env.d.ts"]
     },
+    "deploy": {
+      "dependsOn": ["build", "@permashelf/db#push"],
+      "cache": false,
+      "interactive": false
+    },
     "dev": {
       "persistent": true
     }

@@ -2,7 +2,7 @@
   "name": "@permashelf/monorepo",
   "private": true,
   "engines": {
-    "node": "^22.21.0",
+    "node": "^24.11.1",
     "pnpm": "^10.19.0"
   },
   "packageManager": "pnpm@10.19.0",
@@ -13,6 +13,7 @@
     "auth:generate": "pnpm -F @permashelf/auth generate",
     "db:push": "turbo -F @permashelf/db push",
     "db:studio": "turbo -F @permashelf/db studio",
+    "db:generate": "turbo -F @permashelf/db dbgenerate",
     "dev": "turbo watch dev --continue",
     "dev:web": "turbo watch dev -F @permashelf/web...",
     "format": "turbo run format --continue -- --cache --cache-location .cache/.prettiercache",

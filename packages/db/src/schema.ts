@@ -11,34 +11,31 @@ import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod/v4";
 
 export const Tenants = pgTable("tenants", {
-  id: uuid("id")
-    .default(sql`gen_random_uuid()`)
-    .primaryKey(),
+  id: uuid().defaultRandom().primaryKey(),
   name: text("name"),
-  created: timestamp("created"),
-  updated: timestamp("updated"),
-  deleted: timestamp("deleted"),
+  createdAt: timestamp("created").defaultNow(),
+  updatedAt: timestamp("updated").$onUpdateFn(() => sql`now()`),
+  deletedAt: timestamp("deleted"),
 });
 
 export const TenantsInsertSchema = createInsertSchema(Tenants, {
   name: z.string().max(64),
 }).omit({
   id: true,
-  created: true,
-  updated: true,
-  deleted: true,
+  createdAt: true,
+  updatedAt: true,
+  deletedAt: true,
 });
 
 export const Contents = pgTable("contents", {
-  id: uuid().defaultRandom(),
+  id: uuid().defaultRandom().primaryKey(),
   tenantId: uuid("tenant_id"),
   title: varchar({ length: 256 }),
   content: text("content"),
-  estimate: varchar({ length: 256 }),
   embedding: vector({ dimensions: 3 }),
-  created: timestamp("created"),
-  updated: timestamp("updated"),
-  deleted: timestamp("deleted"),
+  createdAt: timestamp("created").defaultNow(),
+  updatedAt: timestamp("updated").$onUpdateFn(() => sql`now()`),
+  deletedAt: timestamp("deleted"),
 });
 
 // export const Post = pgTable("post", (t) => ({
