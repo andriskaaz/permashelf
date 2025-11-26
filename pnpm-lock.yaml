@@ -433,9 +433,6 @@ importers:
       '@permashelf/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@types/node':
-        specifier: 'catalog:'
-        version: 22.19.1
       drizzle-kit:
         specifier: ^0.31.5
         version: 0.31.7
