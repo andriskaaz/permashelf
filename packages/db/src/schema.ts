@@ -1,5 +1,12 @@
 import { sql } from "drizzle-orm";
-import { pgTable, uuid, text, timestamp, varchar, vector } from "drizzle-orm/pg-core";
+import {
+  pgTable,
+  text,
+  timestamp,
+  uuid,
+  varchar,
+  vector,
+} from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod/v4";
 
@@ -23,15 +30,15 @@ export const TenantsInsertSchema = createInsertSchema(Tenants, {
 });
 
 export const Contents = pgTable("contents", {
-	id: uuid().defaultRandom(),
-	tenantId: uuid("tenant_id"),
-	title: varchar({ length: 256 }),
+  id: uuid().defaultRandom(),
+  tenantId: uuid("tenant_id"),
+  title: varchar({ length: 256 }),
   content: text("content"),
-	estimate: varchar({ length: 256 }),
-	embedding: vector({ dimensions: 3 }),
-	created: timestamp("created"),
-	updated: timestamp("updated"),
-	deleted: timestamp("deleted"),
+  estimate: varchar({ length: 256 }),
+  embedding: vector({ dimensions: 3 }),
+  created: timestamp("created"),
+  updated: timestamp("updated"),
+  deleted: timestamp("deleted"),
 });
 
 // export const Post = pgTable("post", (t) => ({

@@ -1,7 +1,9 @@
 "use client";
 
-import { cn } from "@permashelf/ui"
-import { Button } from "@permashelf/ui/button"
+import { z } from "zod/v4";
+
+import { cn } from "@permashelf/ui";
+import { Button } from "@permashelf/ui/button";
 import {
   Field,
   FieldDescription,
@@ -9,12 +11,10 @@ import {
   FieldGroup,
   FieldLabel,
   FieldSeparator,
-} from "@permashelf/ui/field"
-import { Input } from "@permashelf/ui/input"
-import { useForm } from "@permashelf/ui/form"
-import { toast } from "@permashelf/ui/sonner"
-
-import { z } from "zod/v4";
+} from "@permashelf/ui/field";
+import { useForm } from "@permashelf/ui/form";
+import { Input } from "@permashelf/ui/input";
+import { toast } from "@permashelf/ui/sonner";
 
 const loginSchema = z.object({
   email: z.email(),
@@ -48,13 +48,15 @@ export function LoginForm({
       });
     },
   });
-  
+
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
-      <form onSubmit={(event) => {
-        event.preventDefault();
-        void form.handleSubmit();
-      }}>
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          void form.handleSubmit();
+        }}
+      >
         <FieldGroup>
           <div className="flex flex-col items-center gap-2 text-center">
             <h1 className="text-xl font-bold">Welcome to PermaShelf</h1>
@@ -66,8 +68,8 @@ export function LoginForm({
             name="email"
             children={(field) => {
               const isInvalid =
-                  field.state.meta.isTouched && !field.state.meta.isValid
-              
+                field.state.meta.isTouched && !field.state.meta.isValid;
+
               return (
                 <Field>
                   <FieldLabel htmlFor={field.name}>Email</FieldLabel>
@@ -80,9 +82,7 @@ export function LoginForm({
                     aria-invalid={isInvalid}
                     required
                   />
-                  {isInvalid && (
-                    <FieldError errors={field.state.meta.errors} />
-                  )}
+                  {isInvalid && <FieldError errors={field.state.meta.errors} />}
                 </Field>
               );
             }}
@@ -118,5 +118,5 @@ export function LoginForm({
         and <a href="#">Privacy Policy</a>.
       </FieldDescription>
     </div>
-  )
+  );
 }

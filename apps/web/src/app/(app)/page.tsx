@@ -8,6 +8,7 @@ import {
   SparklesIcon,
   ZapIcon,
 } from "lucide-react";
+import * as motion from "motion/react-client";
 
 import { Badge } from "@permashelf/ui/badge";
 import { Button } from "@permashelf/ui/button";
@@ -19,7 +20,6 @@ import {
 } from "@permashelf/ui/card";
 import { Input } from "@permashelf/ui/input";
 import { Separator } from "@permashelf/ui/separator";
-import * as motion from "motion/react-client";
 
 export default function HomePage() {
   return (
@@ -27,11 +27,11 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative flex flex-col items-center justify-center overflow-hidden px-4 py-20 md:py-32">
         {/* Animated Background Gradient */}
-        <div className="absolute inset-0 -z-10 bg-linear-to-b from-primary/5 via-background to-background" />
-        
+        <div className="from-primary/5 via-background to-background absolute inset-0 -z-10 bg-linear-to-b" />
+
         {/* Decorative Blur Circles */}
         <motion.div
-          className="absolute -left-1/4 top-1/4 -z-10 size-96 rounded-full bg-primary/20 blur-3xl"
+          className="bg-primary/20 absolute top-1/4 -left-1/4 -z-10 size-96 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -43,7 +43,7 @@ export default function HomePage() {
           }}
         />
         <motion.div
-          className="absolute -right-1/4 bottom-1/4 -z-10 size-96 rounded-full bg-primary/10 blur-3xl"
+          className="bg-primary/10 absolute -right-1/4 bottom-1/4 -z-10 size-96 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.3, 1],
             opacity: [0.2, 0.4, 0.2],
@@ -61,15 +61,12 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Badge 
-              variant="secondary" 
-              className="mb-6 text-sm font-medium"
-            >
+            <Badge variant="secondary" className="mb-6 text-sm font-medium">
               <SparklesIcon className="mr-1.5 size-3.5" />
               AI-Powered Archive
             </Badge>
           </motion.div>
-          
+
           <motion.h1
             className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
             initial={{ opacity: 0, y: 30 }}
@@ -78,11 +75,11 @@ export default function HomePage() {
           >
             Your Personal, Permanent
             <br />
-            <span className="bg-linear-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
+            <span className="from-primary via-primary/80 to-primary/60 bg-linear-to-r bg-clip-text text-transparent">
               Knowledge Library
             </span>
           </motion.h1>
-          
+
           <motion.p
             className="text-muted-foreground mx-auto mb-10 max-w-2xl text-lg sm:text-xl"
             initial={{ opacity: 0, y: 30 }}
@@ -101,11 +98,15 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
           >
-            <motion.div className="sm:flex-1" whileHover={{ scale: 1.02 }} whileFocus={{ scale: 1.02 }}>
+            <motion.div
+              className="sm:flex-1"
+              whileHover={{ scale: 1.02 }}
+              whileFocus={{ scale: 1.02 }}
+            >
               <Input
                 type="url"
                 placeholder="Paste any URL to save..."
-                className="h-14 border-2 text-base shadow-lg transition-all hover:shadow-xl focus:border-primary w-full"
+                className="focus:border-primary h-14 w-full border-2 text-base shadow-lg transition-all hover:shadow-xl"
               />
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -129,12 +130,12 @@ export default function HomePage() {
             ].map((text, index) => (
               <motion.div
                 key={text}
-                className="flex items-center gap-2 text-muted-foreground"
+                className="text-muted-foreground flex items-center gap-2"
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
               >
-                <CheckIcon className="size-4 text-primary" />
+                <CheckIcon className="text-primary size-4" />
                 <span>{text}</span>
               </motion.div>
             ))}
@@ -157,7 +158,7 @@ export default function HomePage() {
             <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
               Everything You Need to Build
               <br />
-              <span className="bg-linear-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+              <span className="from-foreground to-foreground/70 bg-linear-to-r bg-clip-text text-transparent">
                 Your Knowledge Base
               </span>
             </h2>
@@ -225,7 +226,7 @@ export default function HomePage() {
                     }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Card className="group h-full transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5">
+                    <Card className="group hover:border-primary/50 hover:shadow-primary/5 h-full transition-all duration-300 hover:shadow-lg">
                       <CardHeader>
                         <motion.div
                           className="bg-primary/10 group-hover:bg-primary/20 mb-4 flex size-12 items-center justify-center rounded-lg transition-colors duration-300"
@@ -301,7 +302,7 @@ export default function HomePage() {
                 transition={{ duration: 0.5, delay: index * 0.2 }}
               >
                 <motion.div
-                  className="group flex flex-col gap-4 rounded-lg border bg-card p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-md sm:flex-row sm:items-start"
+                  className="group bg-card hover:border-primary/50 flex flex-col gap-4 rounded-lg border p-6 transition-all duration-300 hover:shadow-md sm:flex-row sm:items-start"
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.2 }}
                 >
@@ -313,9 +314,7 @@ export default function HomePage() {
                     {step.number}
                   </motion.div>
                   <div className="flex-1">
-                    <h3 className="mb-2 text-xl font-semibold">
-                      {step.title}
-                    </h3>
+                    <h3 className="mb-2 text-xl font-semibold">{step.title}</h3>
                     <p className="text-muted-foreground">{step.description}</p>
                   </div>
                 </motion.div>
@@ -326,10 +325,10 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative overflow-hidden bg-linear-to-b from-muted/50 via-muted/30 to-background px-4 py-20 md:py-32">
+      <section className="from-muted/50 via-muted/30 to-background relative overflow-hidden bg-linear-to-b px-4 py-20 md:py-32">
         {/* Decorative Elements */}
         <motion.div
-          className="absolute left-1/4 top-0 -z-10 size-64 rounded-full bg-primary/10 blur-3xl"
+          className="bg-primary/10 absolute top-0 left-1/4 -z-10 size-64 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -341,7 +340,7 @@ export default function HomePage() {
           }}
         />
         <motion.div
-          className="absolute right-1/4 bottom-0 -z-10 size-64 rounded-full bg-primary/10 blur-3xl"
+          className="bg-primary/10 absolute right-1/4 bottom-0 -z-10 size-64 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.3, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -352,7 +351,7 @@ export default function HomePage() {
             ease: "easeInOut",
           }}
         />
-        
+
         <motion.div
           className="mx-auto w-full max-w-4xl text-center"
           initial={{ opacity: 0, y: 30 }}
@@ -362,7 +361,7 @@ export default function HomePage() {
         >
           <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
             Start Building Your{" "}
-            <span className="bg-linear-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+            <span className="from-primary to-primary/70 bg-linear-to-r bg-clip-text text-transparent">
               Permanent Archive
             </span>
           </h2>

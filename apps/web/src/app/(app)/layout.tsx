@@ -1,8 +1,8 @@
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { getSession } from "~/auth/server";
-import { SiteHeader } from "~/components/layout/site-header";
 import { SiteFooter } from "~/components/layout/site-footer";
+import { SiteHeader } from "~/components/layout/site-header";
 
 export default async function AppLayout({
   children,

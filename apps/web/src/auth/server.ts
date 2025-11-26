@@ -2,10 +2,10 @@ import "server-only";
 
 import { cache } from "react";
 import { headers } from "next/headers";
-import { initAuth } from "@permashelf/auth";
 import { nextCookies } from "better-auth/next-js";
-
 import { magicLink } from "better-auth/plugins";
+
+import { initAuth } from "@permashelf/auth";
 
 import { env } from "~/env";
 
@@ -23,10 +23,10 @@ export const auth = initAuth({
   extraPlugins: [
     nextCookies(),
     magicLink({
-      sendMagicLink: async ({ email, token, url }) => {
+      sendMagicLink: ({ email, token, url }) => {
         console.log("sendMagicLink", email, token, url);
       },
-    })
+    }),
   ],
 });
 
