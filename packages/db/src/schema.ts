@@ -13,18 +13,18 @@ import { z } from "zod/v4";
 export const Tenants = pgTable("tenants", {
   id: uuid().defaultRandom().primaryKey(),
   name: text("name"),
-  created: timestamp("created"),
-  updated: timestamp("updated"),
-  deleted: timestamp("deleted"),
+  createdAt: timestamp("created").defaultNow(),
+  updatedAt: timestamp("updated").$onUpdateFn(() => sql`now()`),
+  deletedAt: timestamp("deleted"),
 });
 
 export const TenantsInsertSchema = createInsertSchema(Tenants, {
   name: z.string().max(64),
 }).omit({
   id: true,
-  created: true,
-  updated: true,
-  deleted: true,
+  createdAt: true,
+  updatedAt: true,
+  deletedAt: true,
 });
 
 export const Contents = pgTable("contents", {
@@ -33,9 +33,9 @@ export const Contents = pgTable("contents", {
   title: varchar({ length: 256 }),
   content: text("content"),
   embedding: vector({ dimensions: 3 }),
-  created: timestamp("created"),
-  updated: timestamp("updated"),
-  deleted: timestamp("deleted"),
+  createdAt: timestamp("created").defaultNow(),
+  updatedAt: timestamp("updated").$onUpdateFn(() => sql`now()`),
+  deletedAt: timestamp("deleted"),
 });
 
 // export const Post = pgTable("post", (t) => ({
