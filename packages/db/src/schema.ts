@@ -11,9 +11,7 @@ import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod/v4";
 
 export const Tenants = pgTable("tenants", {
-  id: uuid("id")
-    .default(sql`gen_random_uuid()`)
-    .primaryKey(),
+  id: uuid().defaultRandom().primaryKey(),
   name: text("name"),
   created: timestamp("created"),
   updated: timestamp("updated"),
@@ -30,12 +28,11 @@ export const TenantsInsertSchema = createInsertSchema(Tenants, {
 });
 
 export const Contents = pgTable("contents", {
-  id: uuid().defaultRandom(),
+  id: uuid().defaultRandom().primaryKey(),
   tenantId: uuid("tenant_id"),
   title: varchar({ length: 256 }),
   content: text("content"),
-  estimate: varchar({ length: 256 }),
-  embedding: vector({ dimensions: 3 }),
+  // embedding: vector({ dimensions: 3 }),
   created: timestamp("created"),
   updated: timestamp("updated"),
   deleted: timestamp("deleted"),
