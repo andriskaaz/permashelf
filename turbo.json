@@ -34,7 +34,7 @@
     },
     "push": {
       "cache": false,
-      "interactive": true
+      "interactive": false
     },
     "dbgenerate": {
       "cache": false,
