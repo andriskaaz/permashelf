@@ -36,6 +36,10 @@
       "cache": false,
       "interactive": true
     },
+    "dbgenerate": {
+      "cache": false,
+      "interactive": true
+    },
     "studio": {
       "cache": false,
       "persistent": true

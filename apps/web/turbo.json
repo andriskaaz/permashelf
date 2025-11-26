@@ -9,7 +9,7 @@
     "deploy": {
       "dependsOn": ["build","@permashelf/db#push"],
       "cache": false,
-      "interactive": true
+      "interactive": false
     },
     "dev": {
       "persistent": true

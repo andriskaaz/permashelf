@@ -32,7 +32,7 @@ export const Contents = pgTable("contents", {
   tenantId: uuid("tenant_id"),
   title: varchar({ length: 256 }),
   content: text("content"),
-  // embedding: vector({ dimensions: 3 }),
+  embedding: vector({ dimensions: 3 }),
   created: timestamp("created"),
   updated: timestamp("updated"),
   deleted: timestamp("deleted"),
